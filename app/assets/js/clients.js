@@ -9,12 +9,10 @@
 
     var printCustomers = function(customers){
         $('#client-table tbody .no-data').remove();
-
         $('#client-table tbody').append(template({customers: customers}));
     };
 
-    dataClients.on("value", function(snapshot) {
-      console.log(snapshot.val());
+    dataClients.once("value", function(snapshot) {
       printCustomers(snapshot.val());
     });
 })();
